@@ -7,8 +7,7 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            number:'',
-            storeNumber:[]
+            busNumber:''
         }
     }
     //
@@ -44,39 +43,36 @@ export default class App extends Component {
         console.log(event.target.value);
 
         this.setState({
-            number:event.target.value
+            busNumber:event.target.value
         })
     }
 
     handleChange = (e) => {
         e.preventDefault();
-        let Num1 = this.state.number;
-        let Num2 = this.state.storeNumber;
-        Num2.push(Num1);
 
         this.setState({
-            number:''
+            busNumber:''
         })
     }
 
   render() {
 
-      console.log("The number is :", this.state.number);
-      console.log("The set state number is :", this.state.storeNumber);
+      console.log("The number is :", this.state.busNumber);
+      console.log("The set state number is :", this.state.storeBusNumber);
 
       return (
       <div>
           <form>
-              <h2>Enter the bus number : <input type='number' value={this.state.number} onChange={this.handleBusNumber} /></h2>
+              <h2>Enter the bus number : <input type='number' value={this.state.busNumber} onChange={this.handleBusNumber} /></h2>
               <button type='submit' onClick={this.handleChange}>Submit</button>
           </form>
 
           {
-              this.state.storeNumber.length > 0 &&
+              this.state.busNumber.length > 0 &&
               <div>
                   <p>You entered:</p>
                   <ul>
-                      {this.state.storeNumber.map(item =>
+                      {this.state.busNumber.map(item =>
                           <li>{item}</li>
                       )
                       }
