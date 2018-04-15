@@ -7,8 +7,8 @@ export default class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            number:'',
-            storeNumber:[]
+            Busnumber:'',
+ 
         }
     }
     //
@@ -44,19 +44,15 @@ export default class App extends Component {
         console.log(event.target.value);
 
         this.setState({
-            number:event.target.value
+            Busnumber:event.target.value;
         })
     }
 
     handleChange = (e) => {
-        e.preventDefault();
-        let Num1 = this.state.number;
-        let Num2 = this.state.storeNumber;
-        Num2.push(Num1);
-
-        this.setState({
-            number:''
-        })
+       e.preventDefault();
+        //Now you have Busnumber you can send request to fetch like
+        //fetch
+       console.log(this.state.Busnumber);
     }
 
   render() {
@@ -67,7 +63,7 @@ export default class App extends Component {
       return (
       <div>
           <form>
-              <h2>Enter the bus number : <input type='number' value={this.state.number} onChange={this.handleBusNumber} /></h2>
+              <h2>Enter the bus number : <input type='number' value={this.state.Busnumber} onChange={this.handleBusNumber} /></h2>
               <button type='submit' onClick={this.handleChange}>Submit</button>
           </form>
 
